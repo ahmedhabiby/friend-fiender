@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Friend Requests</title>
+</head>
+<body>
+
+<div class="container">
+  <h2>Friend Requests</h2>
+
+  <!-- No Requests Message -->
+  <div *ngIf="requests && requests.length === 0" class="no-requests">
+    No requests
+  </div>
+
+  <!-- Friend Request Cards -->
+  <div
+    class="request-card"
+    *ngFor="let r of requests"
+  >
+    <div class="info">
+      <p class="name">{{ r.senderNames }}</p>
+      <p class="date">{{ r.createdAts }}</p>
+    </div>
+
+    <div class="actions">
+      <button
+        class="accept-btn"
+        (click)="acceptRequest(r.senderId, r.receiverId)"
+      >
+        Accept
+      </button>
+
+      <button
+        class="reject-btn"
+        (click)="rejectRequest(r.senderId, r.receiverId)"
+      >
+        Reject
+      </button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

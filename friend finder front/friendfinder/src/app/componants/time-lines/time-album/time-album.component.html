@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="timeline">
+
+    <app-time-line-profile></app-time-line-profile>
+
+    <div id="page-contents">
+      <div class="row">
+
+        <div class="col-md-3"></div>
+
+        <div class="col-md-7">
+
+          <ul class="album-photos">
+
+            <li *ngFor="let image of images">
+              <div class="img-wrapper">
+                <img
+                  [src]="getImagePath(image)"
+                  alt="Post Image"
+                  class="img-responsive">
+              </div>
+            </li>
+
+            <li *ngIf="images.length === 0" class="text-center">
+              <h4>No photos found</h4>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <app-time-line-detailes></app-time-line-detailes>
+
+      </div>
+    </div>
+
+  </div>
+</div>

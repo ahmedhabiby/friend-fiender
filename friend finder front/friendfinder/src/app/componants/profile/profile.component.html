@@ -1,0 +1,90 @@
+<div class="profile-container">
+
+  <div class="profile-card">
+
+    <div class="profile-header">
+      <div class="profile-icon">
+        <i class="fa-solid fa-user-plus"></i>
+      </div>
+      <h2>Create Your Profile</h2>
+      <p>Complete your information and connect with people</p>
+    </div>
+
+
+    <form>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" id="personalInfo" name="personalInfo" placeholder=" " required #info>
+          <label for="personalInfo">Personal Info</label>
+        </div>
+
+
+        <div class="form-group">
+          <i class="fa-solid fa-image"></i>
+          <input type="text" id="imageUrl" name="imageUrl" placeholder=" " required #img>
+          <label for="imageUrl">Image URL</label>
+        </div>
+
+
+        <div class="form-group">
+          <i class="fa-solid fa-location-dot"></i>
+          <input type="text" id="location" name="location" placeholder=" " required #loc>
+          <label for="location">Location</label>
+        </div>
+
+
+        <div class="form-group">
+          <i class="fa-solid fa-briefcase"></i>
+          <input type="text" id="job" name="job" placeholder=" " required #job>
+          <label for="job">Current Job</label>
+        </div>
+
+
+        <div class="form-group full">
+          <i class="fa-solid fa-file-lines"></i>
+          <textarea id="experience" name="experience" placeholder=" " required #work></textarea>
+          <label for="experience">Work Experience</label>
+        </div>
+
+
+        <div class="form-group">
+          <i class="fa-solid fa-heart"></i>
+          <input type="text" id="interests" name="interests" placeholder=" " required #int>
+          <label for="interests">Interests</label>
+        </div>
+
+
+        <div class="form-group">
+          <i class="fa-solid fa-language"></i>
+          <input type="text" id="language" name="language" placeholder=" " required #lang>
+          <label for="language">Language</label>
+        </div>
+
+      </div>
+
+
+      <div *ngIf="messageEn && messageAr" class="error-message">
+        <div>{{messageAr}}</div>
+        <div>{{messageEn}}</div>
+      </div>
+
+
+      <button
+        type="submit"
+        class="submit-btn"
+        (click)="doProfile(info.value,img.value,loc.value,job.value,work.value,int.value,lang.value)">
+
+        <i class="fa-solid fa-check"></i>
+        Create Profile
+
+      </button>
+
+
+    </form>
+
+  </div>
+
+</div>

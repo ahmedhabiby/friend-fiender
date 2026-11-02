@@ -1,0 +1,169 @@
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+
+      <!-- Left Sidebar -->
+      <app-left-bar></app-left-bar>
+
+      <!-- Main Content -->
+      <div class="col-md-7">
+
+        <!-- Publish -->
+        <app-publish></app-publish>
+
+        <!-- ================= POSTS ================= -->
+        <div class="post-content" *ngFor="let po of filteredPosts">
+          <!-- Media -->
+          <div *ngFor="let media of po.mediaUrl">
+            <img
+              *ngIf="isImage(media)"
+              class="media-item"
+              [src]="'assets/images/post-images/' + media"
+              alt="Post Image">
+
+            <video
+              *ngIf="isVideo(media)"
+              class="media-item"
+              controls
+              preload="metadata">
+              <source [src]="'assets/images/post-images/' + media">
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+
+          <!-- Post Container -->
+          <div class="post-container">
+            <img
+              class="profile-photo-md pull-left"
+              [src]="'assets/images/users/' + (po.imageUrl || '')"
+              alt="User">
+
+            <div class="post-detail">
+
+              <!-- User Info -->
+              <div class="user-info">
+                <h5>
+                  <a class="profile-link">{{ po.postAuthor }}</a>
+                </h5>
+                <p class="text-muted">
+                  Published {{ timeAgo(po.createdAt) }}
+                </p>
+              </div>
+
+              <!-- Reactions -->
+              <div class="reaction">
+                <a class="btn text-green" (click)="doReaction(po.postId, 1)">
+                  <i class="icon ion-thumbsup"></i> {{ po.numberOfLikes }}
+                </a>
+                <a class="btn text-red" (click)="doReaction(po.postId, -1)">
+                  <i class="fa fa-thumbs-down"></i> {{ po.numberOfDislikes }}
+                </a>
+                <a class="btn text-primary" (click)="toggleComments(po)">
+                  <i class="fa fa-comments"></i>
+                  {{ po.showComments ? 'Hide Comments ▲' : 'Show Comments ▼' }}
+                </a>
+              </div>
+
+              <div class="line-divider"></div>
+
+              <!-- Post Text -->
+              <div class="post-text">
+                <p>{{ po.postContent }}</p>
+              </div>
+
+              <div class="line-divider"></div>
+
+              <!-- ================= COMMENTS SECTION ================= -->
+              <div *ngIf="po.showComments">
+                <div class="post-comment" *ngFor="let co of po.responseComments">
+
+                  <!-- Comment Author Image -->
+                  <img
+                    class="profile-photo-sm"
+                    [src]="'assets/images/users/' + (co.comment_author_image_url || '')"
+                    alt="">
+
+                  <!-- Comment Content Container -->
+                  <div class="comment-content">
+
+                    <!-- Comment Header (Name, Time, Actions) -->
+                    <div class="comment-header">
+                      <div>
+                        <a class="profile-link">{{ co.comment_author_name }}</a>
+                        <br>
+                        <small class="text-muted">{{ timeAgo(co.comment_created_at) }}</small>
+                      </div>
+
+                      <!-- Edit/Delete Actions (Only visible to author) -->
+                      <div class="comment-actions" *ngIf="co.comment_author_id === currentUserId">
+                        <button class="btn btn-xs text-primary action-btn" (click)="editComment(co)">
+                          <i class="fa fa-pencil"></i> Edit
+                        </button>
+                        <button class="btn btn-xs text-danger action-btn" (click)="deleteComment(co.comment_id)">
+                          <i class="fa fa-trash"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+
+                    <!-- Read Mode: Show Comment Text -->
+                    <div *ngIf="editingCommentId !== co.comment_id">
+                      <p class="comment-text">
+                        {{ co.comment_content }}
+                      </p>
+                    </div>
+
+                    <!-- Edit Mode: Inline Edit Box -->
+                    <div class="edit-comment-box" *ngIf="editingCommentId === co.comment_id">
+                      <input
+                        type="text"
+                        class="comment-input"
+                        placeholder="Update your comment"
+                        [(ngModel)]="co.comment_content">
+
+                      <div class="edit-actions-container">
+                        <button class="btn-cancel" (click)="cancelEdit()">Cancel</button>
+                        <button class="btn-update" (click)="updateComment(co)">
+                          <i class="fa fa-check"></i> Update
+                        </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- ================= ADD NEW COMMENT ================= -->
+              <div class="post-comment d-flex align-items-center mt-3">
+                <img
+                  class="profile-photo-sm"
+                  [src]="'assets/images/users/' + (profile?.imageUrl || '')"
+                  alt="">
+
+                <input
+                  #content
+                  type="text"
+                  class="comment-input"
+                  placeholder="Write a comment...">
+
+                <button class="comment-button" (click)="doComment(content.value, po.postId)">
+                  <i class="fa fa-paper-plane"></i> Comment
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Empty State -->
+        <div class="text-center text-muted mt-4" *ngIf="posts.length === 0">
+          No posts to show yet.
+        </div>
+
+      </div>
+
+      <!-- Right Sidebar -->
+      <app-right-bar></app-right-bar>
+
+    </div>
+  </div>
+</div>

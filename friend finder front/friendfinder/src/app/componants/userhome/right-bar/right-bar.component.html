@@ -1,0 +1,33 @@
+<div class="col-md-2 static">
+  <div class="suggestions" id="sticky-sidebar">
+
+    <h4 class="grey">Who to Follow</h4>
+
+    <div
+      class="follow-user"
+      *ngFor="let username of friends?.userNames; let i = index">
+
+      <img
+        [src]="friends.imageUrls[i] !== 'null'
+              ? 'assets/images/users/' + friends.imageUrls[i]
+              : 'assets/images/users/default-profile.png'"
+        class="profile-photo-sm pull-left"
+        alt="Profile">
+
+      <div>
+        <h5>
+          <a href="#">{{ username }}</a>
+        </h5>
+
+        <a
+          href="javascript:void(0)"
+          class="text-green"
+          (click)="addFriend(username)">
+          Add Friend
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</div>

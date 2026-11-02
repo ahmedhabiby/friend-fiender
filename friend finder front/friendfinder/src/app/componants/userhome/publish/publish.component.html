@@ -1,0 +1,62 @@
+<div class="create-post-card">
+
+  <!-- Alert Message -->
+  <div *ngIf="message"
+       class="alert"
+       [ngClass]="success ? 'alert-success' : 'alert-danger'">
+    {{message}}
+  </div>
+
+  <!-- Composer Area -->
+  <div class="composer">
+    <img
+      [src]="'assets/images/users/' + profile?.imageUrl"
+      class="profile-image"
+      alt="User Profile">
+
+    <textarea
+      #content
+      class="post-text"
+      placeholder="What's on your mind?">
+    </textarea>
+  </div>
+
+  <!-- Divider Line -->
+  <div class="line-divider"></div>
+
+  <!-- Footer Tools & Publish -->
+  <div class="composer-footer">
+
+    <div class="left-tools">
+      <!-- Photo Upload Label -->
+      <label class="upload-btn photo-btn">
+        <i class="ion-images"></i>
+        <span>Photo</span>
+        <input
+          type="file"
+          accept="image/*"
+          #img
+          class="hide-file-input">
+      </label>
+
+      <!-- Video Upload Label -->
+      <label class="upload-btn video-btn">
+        <i class="ion-ios-videocam"></i>
+        <span>Video</span>
+        <input
+          type="file"
+          accept="video/*"
+          #video
+          class="hide-file-input">
+      </label>
+    </div>
+
+    <button
+      class="publish-btn"
+      (click)="doPost(content, img, video)">
+      Publish
+    </button>
+
+  </div>
+
+</div>

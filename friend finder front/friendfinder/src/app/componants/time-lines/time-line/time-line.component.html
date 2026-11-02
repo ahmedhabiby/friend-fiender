@@ -1,0 +1,124 @@
+<div class="container">
+  <div class="timeline">
+
+    <app-time-line-profile></app-time-line-profile>
+
+    <div id="page-contents">
+      <div class="row">
+
+        <div class="col-md-3"></div>
+
+        <div class="col-md-7">
+
+          <app-publish></app-publish>
+
+          <!-- Posts -->
+          <div class="post-content" *ngFor="let po of posts">
+
+            <!-- Author -->
+            <div class="post-date hidden-xs hidden-sm">
+              <h5>{{ po.postAuthor }}</h5>
+            </div>
+
+            <!-- Media -->
+            <div class="post-media" *ngIf="po.mediaUrl?.length">
+
+              <ng-container *ngFor="let media of po.mediaUrl">
+
+                <!-- Image -->
+                <img
+                  *ngIf="isImage(media)"
+                  class="media-item"
+                  [src]="'assets/images/post-images/' + media"
+                  alt="Post Image">
+
+                <!-- Video -->
+                <video
+                  *ngIf="isVideo(media)"
+                  class="media-item"
+                  controls
+                  preload="metadata">
+
+                  <source
+                    [src]="'assets/images/post-images/' + media">
+
+                  Your browser does not support HTML5 video.
+
+                </video>
+
+              </ng-container>
+
+            </div>
+
+            <!-- Post Body -->
+            <div class="post-container">
+
+              <img
+                *ngIf="profile"
+                [src]="'assets/images/users/' + profile.imageUrl"
+                class="profile-photo-md pull-left">
+              <div class="post-detail">
+
+                <div class="user-info">
+                  <h5>
+                    <a href="#" class="profile-link">
+                      {{ po.postAuthor }}
+                    </a>
+                  </h5>
+                </div>
+
+                <div class="reaction">
+                  <a class="btn text-green">
+                    <i class="icon ion-thumbsup"></i>
+                    {{ po.numberOfLikes }}
+                  </a>
+
+                  <a class="btn text-red">
+                    <i class="fa fa-thumbs-down"></i>
+                    {{ po.numberOfDislikes }}
+                  </a>
+                </div>
+
+                <div class="line-divider"></div>
+
+                <div class="post-text">
+                  <p>{{ po.postContent }}</p>
+                </div>
+
+                <div class="line-divider"></div>
+
+                <div
+                  class="post-comment"
+                  *ngFor="let co of po.responseComments">
+
+                  <img
+                    [src]="'assets/images/users/' + profile.imageUrl"
+                    class="profile-photo-sm">
+
+                  <p>
+                    <a href="#" class="profile-link">
+                      {{ co.comment_author_name }}
+                    </a>
+
+                    <br>
+
+                    {{ co.comment_content }}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <app-time-line-detailes></app-time-line-detailes>
+
+      </div>
+    </div>
+
+  </div>
+</div>

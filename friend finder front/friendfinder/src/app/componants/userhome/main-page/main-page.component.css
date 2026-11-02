@@ -1,0 +1,164 @@
+/* ================= MEDIA STYLES ================= */
+post-media {
+  width: 100%;
+  background: #000;
+}
+
+.media-item {
+  width: 100%;
+  max-height: 650px;
+  display: block;
+  object-fit: cover;
+}
+
+video.media-item {
+  background: #000;
+  outline: none;
+}
+
+/* ================= GENERAL COMMENT STYLES ================= */
+.comment-content {
+  width: 100%;
+}
+
+.comment-input {
+  border-radius: 20px;
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  flex: 1;
+  margin-right: 8px;
+  outline: none;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.comment-input:focus {
+  border-color: #1a73e8;
+}
+
+.comment-button {
+  border-radius: 20px;
+  padding: 8px 16px;
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comment-button:hover {
+  background-color: #155ab6;
+}
+
+/* ================= COMMENT HEADER & ACTIONS ================= */
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Top-level Edit and Delete Buttons */
+.comment-actions .action-btn {
+  background: transparent;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.comment-actions .action-btn:focus {
+  outline: none;
+}
+
+.comment-actions .action-btn:hover {
+  text-decoration: none; /* Removes default Bootstrap underline */
+}
+
+.comment-actions .text-primary {
+  color: #1a73e8;
+}
+
+.comment-actions .text-primary:hover {
+  background-color: rgba(26, 115, 232, 0.1);
+}
+
+.comment-actions .text-danger {
+  color: #dc3545;
+}
+
+.comment-actions .text-danger:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+/* ================= INLINE EDIT MODE ================= */
+.edit-comment-box {
+  margin-top: 8px;
+  background-color: #f8f9fa; /* Soft background */
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #e9ecef;
+}
+
+.edit-comment-box .comment-input {
+  width: 100%;
+  margin-right: 0;
+  margin-bottom: 12px;
+  border-color: #dadce0;
+}
+
+.edit-actions-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  color: #5f6368;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #e8eaed;
+}
+
+.btn-update {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-update:hover {
+  background-color: #155ab6;
+}

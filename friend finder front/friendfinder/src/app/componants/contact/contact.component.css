@@ -1,0 +1,45 @@
+.success-banner {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  background: #28a745;
+  color: #fff;
+
+  padding: 15px 25px;
+  border-radius: 8px;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .25);
+
+  animation: slideIn .4s ease;
+}
+
+.success-banner i {
+  margin-right: 8px;
+}
+
+.error-message {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 5px;
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  font-weight: 600;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

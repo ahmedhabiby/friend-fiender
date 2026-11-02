@@ -1,0 +1,126 @@
+<div class="success-banner" *ngIf="showSuccess">
+  <i class="icon ion-checkmark-circled"></i>
+  {{ successMessage }}
+</div>
+
+<div class="google-maps">
+  <div id="map" class="map contact-map"></div>
+</div>
+
+<div id="page-contents">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+
+        <div class="contact-us">
+          <div class="row">
+
+            <div class="col-md-8 col-sm-7">
+
+              <h4 class="grey">Leave a Message</h4>
+
+              <form class="contact-form">
+
+                <div class="form-group">
+                  <i class="icon ion-person"></i>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your name *"
+                    #name>
+                </div>
+
+                <div class="form-group">
+                  <i class="icon ion-email"></i>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email *"
+                    #email>
+                </div>
+
+                <div class="form-group">
+                  <i class="icon ion-android-call"></i>
+                  <input
+                    id="contact-phone"
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your phone *"
+                    #phone>
+                </div>
+
+                <div class="form-group">
+                  <textarea
+                    id="form-message"
+                    class="form-control"
+                    rows="4"
+                    placeholder="Leave a message for us *"
+                    #message>
+                  </textarea>
+                </div>
+
+                <div *ngIf="messageEn && messageAr" class="error-message">
+                  <div>{{ messageAr }}</div>
+                  <div dir="ltr">{{ messageEn }}</div>
+                </div>
+
+              </form>
+
+              <button
+                class="btn btn-primary"
+                (click)="doContact(name.value,email.value,phone.value,message.value)">
+                Send a Message
+              </button>
+
+            </div>
+
+            <div class="col-md-4 col-sm-5">
+
+              <h4 class="grey">Reach Us</h4>
+
+              <div class="reach">
+                <span class="phone-icon">
+                  <i class="icon ion-android-call"></i>
+                </span>
+                <p>+20 1001205992</p>
+              </div>
+
+              <div class="reach">
+                <span class="phone-icon">
+                  <i class="icon ion-email"></i>
+                </span>
+                <p>ahmednsra329@gmail.com</p>
+              </div>
+
+              <div class="reach">
+                <span class="phone-icon">
+                  <i class="icon ion-ios-location"></i>
+                </span>
+                <p>Elbagour - Menoufia</p>
+              </div>
+
+              <ul class="list-inline social-icons">
+                <li>
+                  <a href="https://www.facebook.com/share/16t86JhJYm/" target="_blank">
+                    <i class="icon ion-social-facebook"></i>
+                  </a>
+                </li>
+
+                <li>
+                  <a href="https://www.linkedin.com/in/ahmed-habiby-3401a1255" target="_blank">
+                    <i class="icon ion-social-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

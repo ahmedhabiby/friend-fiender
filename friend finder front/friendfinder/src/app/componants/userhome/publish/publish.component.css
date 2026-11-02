@@ -1,0 +1,128 @@
+/* ===========================
+   POST PUBLISHER CARD
+=========================== */
+.create-post-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08); /* Softer, modern shadow */
+  border: 1px solid #eaeaea; /* Subtle border for definition */
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+.composer {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.profile-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid #f0f0f0;
+}
+
+.post-text {
+  flex: 1;
+  min-height: 80px; /* Starts slightly smaller, expands on type */
+  resize: vertical;
+  border: 1px solid transparent;
+  outline: none;
+  background: #f4f6f9; /* Softer gray */
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+/* Adds a professional focus ring when typing */
+.post-text:focus {
+  background: #ffffff;
+  border-color: #1877f2;
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+}
+
+.line-divider {
+  height: 1px;
+  background: #f0f2f5;
+  margin: 15px 0;
+}
+
+.composer-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* ===========================
+   MEDIA UPLOAD BUTTONS
+=========================== */
+.left-tools {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.upload-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: #65676b; /* Professional neutral gray */
+  transition: background-color 0.2s ease;
+  margin: 0;
+}
+
+.upload-btn:hover {
+  background: #f2f2f2;
+}
+
+.upload-btn i {
+  font-size: 20px;
+}
+
+/* Optional: Color code the icons like social networks */
+.photo-btn i {
+  color: #45bd62; /* Green */
+}
+
+.video-btn i {
+  color: #f02849; /* Red */
+}
+
+/* CRITICAL: Hides the default "Choose File" browser UI */
+.hide-file-input {
+  display: none !important;
+}
+
+/* ===========================
+   PUBLISH BUTTON
+=========================== */
+.publish-btn {
+  min-width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background: #1877f2;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.publish-btn:hover {
+  background: #166fe5;
+}

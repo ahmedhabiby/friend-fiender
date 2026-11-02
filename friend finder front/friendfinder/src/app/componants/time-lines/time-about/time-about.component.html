@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="timeline">
+    <app-time-line-profile></app-time-line-profile>
+    <div id="page-contents">
+      <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-7">
+
+            <!-- About
+            ================================================= -->
+            <div class="about-profile">
+              <div class="about-content-block">
+                <h4 class="grey"><i class="ion-ios-information-outline icon-in-title"></i>Personal Information</h4>
+                <p>{{ profile?.personalInfo }}</p>              </div>
+              <div class="about-content-block">
+                <h4 class="grey"><i class="ion-ios-briefcase-outline icon-in-title"></i>Work Experiences</h4>
+                <div class="organization">
+                  <img src="assets/images/envato.png" alt="" class="pull-left img-org">
+                  <div class="work-info">
+                    <h5>{{ profile?.workExperience }}</h5>
+                  </div>
+                </div>
+              </div>
+              <div class="about-content-block">
+                <h4 class="grey"><i class="ion-ios-location-outline icon-in-title"></i>Location</h4>
+                <p>{{ profile?.location }}</p>
+
+              </div>
+              <div class="about-content-block">
+                <h4 class="grey"><i class="ion-ios-heart-outline icon-in-title"></i>Interests</h4>
+                <ul class="interests list-inline">
+                  <li><span class="int-icons" title="Bycycle riding"><i class="icon ion-android-bicycle">{{profile?.interest}}</i></span></li>
+                </ul>
+              </div>
+              <div class="about-content-block">
+                <h4 class="grey"><i class="ion-ios-chatbubble-outline icon-in-title"></i>Language</h4>
+                <ul>
+                  <li><a href="">{{ profile?.language }}</a></li>
+                </ul>
+              </div>
+            </div>
+
+        </div>
+
+
+
+        <app-time-line-detailes></app-time-line-detailes>
+      </div>
+    </div>
+
+  </div>
+</div>

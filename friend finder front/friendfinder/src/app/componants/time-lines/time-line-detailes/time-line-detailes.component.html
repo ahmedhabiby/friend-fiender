@@ -1,0 +1,24 @@
+<div class="col-md-2 static" >
+  <div id="sticky-sidebar">
+    <h4 class="grey">{{ userName }}'s activity</h4>
+    <div class="feed-item">
+      <div class="live-activity">
+        <p><a href="#" class="profile-link">{{ userName }}</a> Commended on a Photo</p>
+        <p class="text-muted">
+          {{ comments?.comment_created_at ? timeAgo(comments.comment_created_at) : '' }}
+        </p>      </div>
+    </div>
+    <div class="feed-item">
+      <div class="live-activity">
+        <p><a href="#" class="profile-link">{{ userName }}</a><br> Has posted a photo</p>
+        <p class="text-muted">{{timeAgo(createdAt)}}</p>
+      </div>
+    </div>
+    <div class="feed-item">
+      <div class="live-activity">
+        <p><a href="#" class="profile-link">{{ userName }}</a> <br>Liked her friend's post</p>
+        <p class="text-muted">{{ timeAgo(createdAt1) }}</p>
+      </div>
+    </div>
+  </div>
+</div>
